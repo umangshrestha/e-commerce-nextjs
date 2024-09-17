@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ResponsiveAppBar from "@/components/ResponsiveAppBar";
 import Footer from "@/components/Footer";
 import { APP_NAME, APP_DESCRIPTION } from "@/config";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import CssBaseline from "@mui/material/CssBaseline";
 
 export const metadata: Metadata = {
   title: APP_NAME,
   description: APP_DESCRIPTION,
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -19,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppRouterCacheProvider>
-          <ResponsiveAppBar />
+        <CssBaseline />
           {children}
           <Footer />
         </AppRouterCacheProvider>

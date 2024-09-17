@@ -13,9 +13,7 @@ export default function ListError({ errors }: { errors?: string[] }) {
     <List>
       {errors.map((error) => (
         <ListItem key={error} sx={{ p: 0 }}>
-          <ListItemIcon>
-            {/* <ErrorIcon color="error" /> */}
-          </ListItemIcon>
+          <ListItemIcon>{/* <ErrorIcon color="error" /> */}</ListItemIcon>
           <ListItemText color="error" primary={error} />
         </ListItem>
       ))}

@@ -1,13 +1,32 @@
 "use client";
 import * as React from "react";
 import Menu from "@mui/material/Menu";
-// import MenuIcon from "@mui/icons-material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const pages = ["Products", "Blog"];
+const pages = [
+  {
+    tab: "Chicken",
+    enabled: true,
+    pill: "New",
+    icon: "chicken",
+  },
+  {
+    tab: "Beef",
+    enabled: false,
+    pill: "Comming Soon",
+    icon: "beef",
+  },
+  {
+    tab: "Mutton",
+    enabled: false,
+    pill: "Comming Soon",
+    icon: "mutton",
+  },
+];
 
 export default function NavMenu() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -31,7 +50,7 @@ export default function NavMenu() {
         onClick={handleOpenNavMenu}
         color="inherit"
       >
-        {/* <MenuIcon /> */}
+        <MenuIcon />
       </IconButton>
       <Menu
         id="menu-appbar"
@@ -50,8 +69,8 @@ export default function NavMenu() {
         sx={{ display: { xs: "block", md: "none" } }}
       >
         {pages.map((page) => (
-          <MenuItem key={page} onClick={handleCloseNavMenu}>
-            <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+          <MenuItem key={page.tab} onClick={handleCloseNavMenu}>
+            <Typography sx={{ textAlign: "center" }}>{page.tab}</Typography>
           </MenuItem>
         ))}
       </Menu>
