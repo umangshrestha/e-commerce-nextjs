@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Box } from "@mui/material";
 import Product from "../Product";
-import { Category } from "@mui/icons-material";
 
 const products = [
   {

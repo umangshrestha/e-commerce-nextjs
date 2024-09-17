@@ -14,6 +14,7 @@ export default function Product({
   params: { category },
   searchParams,
 }: ProductProps) {
+  console.log(searchParams);
   return (
     <Box>
       <ProductList category={category} />

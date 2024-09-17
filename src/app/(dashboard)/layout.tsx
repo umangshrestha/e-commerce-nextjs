@@ -55,7 +55,7 @@ export default function LayoutNavigationLinks({
         router.push(path);
       },
     };
-  }, [pathname]);
+  }, [pathname, router]);
 
   const demoWindow = window !== undefined ? window() : global.window;
 

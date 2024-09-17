@@ -23,6 +23,8 @@ export default function Product({
   quantity,
 }: ProductProps) {
   const imageSize = 300;
+  const isProductAvailable = quantity > 0;
+  console.log(isProductAvailable);
   return (
     <Card sx={{ maxWidth: 300 }}>
       <CardMedia
