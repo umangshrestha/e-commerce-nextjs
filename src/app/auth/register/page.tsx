@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+// import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import * as React from "react";
 import { useFormState } from "react-dom";
 import { registerAction } from "@/app/actions/register";
@@ -23,7 +23,7 @@ export default function Login() {
       }}
     >
       <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-        <LockOutlinedIcon />
+        {/* <LockOutlinedIcon /> */}
       </Avatar>
       <Typography component="h1" variant="h5">
         Create A New Account

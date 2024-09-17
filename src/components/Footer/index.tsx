@@ -8,10 +8,10 @@ import {
 } from "@/config";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+// import FacebookIcon from "@mui/icons-material/Facebook";
+// import InstagramIcon from "@mui/icons-material/Instagram";
+// import TwitterIcon from "@mui/icons-material/Twitter";
+// import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function Footer() {
   return (
@@ -32,16 +32,16 @@ export default function Footer() {
           rel="noopener"
           sx={{ mx: 1 }}
         >
-          <InstagramIcon />
+          {/* <InstagramIcon /> */}
         </Link>
         <Link href={FACEBOOK_URL} target="_blank" rel="noopener" sx={{ mx: 1 }}>
-          <FacebookIcon />
+          {/* <FacebookIcon /> */}
         </Link>
         <Link href={TWITTER_URL} target="_blank" rel="noopener" sx={{ mx: 1 }}>
-          <TwitterIcon />
+          {/* <TwitterIcon /> */}
         </Link>
         <Link href={LINKEDIN_URL} target="_blank" rel="noopener" sx={{ mx: 1 }}>
-          <LinkedInIcon />
+          {/* <LinkedInIcon /> */}
         </Link>
       </Box>
       <Box sx={{ mb: 2 }}>

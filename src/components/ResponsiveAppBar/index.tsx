@@ -3,8 +3,8 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import AdbIcon from "@mui/icons-material/Adb";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+// import AdbIcon from "@mui/icons-material/Adb";
+// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LazyUserMenu from "../UserMenu";
 import LazyNavMenu from "../NavMenu";
 import { Suspense } from "react";
@@ -15,7 +15,7 @@ export default function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -42,7 +42,7 @@ export default function ResponsiveAppBar() {
           </Suspense>
 
           <IconButton color="inherit">
-            <ShoppingCartIcon />
+            {/* <ShoppingCartIcon /> */}
           </IconButton>
         </Toolbar>
       </Container>

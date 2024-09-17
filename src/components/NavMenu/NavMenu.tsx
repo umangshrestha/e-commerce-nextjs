@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
+// import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
@@ -31,7 +31,7 @@ export default function NavMenu() {
         onClick={handleOpenNavMenu}
         color="inherit"
       >
-        <MenuIcon />
+        {/* <MenuIcon /> */}
       </IconButton>
       <Menu
         id="menu-appbar"
