@@ -1,49 +1,49 @@
 // ...
-import * as React from 'react';
-import type { AuthProvider } from '@toolpad/core';
-import { SignInPage } from '@toolpad/core/SignInPage';
-import { AuthError } from 'next-auth';
-import { providerMap, signIn } from '@/app/auth';
-import CustomPasswordField from '@/components/CustomPasswordField';
+import * as React from "react";
+import type { AuthProvider } from "@toolpad/core";
+import { SignInPage } from "@toolpad/core/SignInPage";
+import { AuthError } from "next-auth";
+import { providerMap, signIn } from "@/app/auth";
+import CustomPasswordField from "@/components/CustomPasswordField";
 
 export default function SignIn() {
   return (
     <SignInPage
       providers={providerMap}
       slots={{
-        passwordField: CustomPasswordField
+        passwordField: CustomPasswordField,
       }}
       signIn={async (
         provider: AuthProvider,
         formData: FormData,
         callbackUrl?: string,
       ) => {
-        'use server';
+        "use server";
         try {
           console.log(callbackUrl);
           return await signIn(provider.id, {
             ...(formData && {
-              email: formData.get('email'),
-              password: formData.get('password'),
+              email: formData.get("email"),
+              password: formData.get("password"),
             }),
-            redirectTo: callbackUrl ?? '/',
+            redirectTo: callbackUrl ?? "/",
           });
         } catch (error) {
-          if (error instanceof Error && error.message === 'NEXT_REDIRECT') {
+          if (error instanceof Error && error.message === "NEXT_REDIRECT") {
             throw error;
           }
           if (error instanceof AuthError) {
             return {
               error:
-                error.type === 'CredentialsSignin'
-                  ? 'Invalid credentials.'
-                  : 'An error with Auth.js occurred.',
+                error.type === "CredentialsSignin"
+                  ? "Invalid credentials."
+                  : "An error with Auth.js occurred.",
               type: error.type,
             };
           }
           return {
-            error: 'Something went wrong.',
-            type: 'UnknownError',
+            error: "Something went wrong.",
+            type: "UnknownError",
           };
         }
       }}

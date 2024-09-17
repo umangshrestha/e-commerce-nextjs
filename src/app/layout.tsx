@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { APP_NAME, APP_DESCRIPTION } from "@/config";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import CssBaseline from "@mui/material/CssBaseline";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: APP_NAME,
@@ -22,8 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppRouterCacheProvider>
-        <CssBaseline />
-          {children}
+          <CssBaseline />
+          <SessionProvider>{children}</SessionProvider>
           <Footer />
         </AppRouterCacheProvider>
       </body>

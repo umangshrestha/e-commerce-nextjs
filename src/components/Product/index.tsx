@@ -1,4 +1,3 @@
-import * as React from "react";
+import Product from "./Product";
 
-const LazyProduct = React.lazy(() => import("./Product"));
-export default LazyProduct;
+export default Product;
