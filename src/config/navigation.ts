@@ -21,7 +21,7 @@ export const NAVIGATION: Navigation = [
     }, {
         segment: 'Mutton',
         title: 'Mutton',
-        icon: '🐑'
+        icon: '🐑',
     }, {
         kind: 'divider'
     }

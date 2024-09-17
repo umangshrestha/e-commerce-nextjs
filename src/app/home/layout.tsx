@@ -61,6 +61,7 @@ export default function LayoutNavigationLinks({
             logo: <Image src="/favicon.svg" alt="Logo" width={32} height={32} />,
 
         }}
+
       navigation={NAVIGATION}
       router={router}
       theme={demoTheme}
