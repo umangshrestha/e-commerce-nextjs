@@ -11,6 +11,8 @@ import { PageContainer } from "@toolpad/core/PageContainer";
 import { createTheme } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Badge from '@mui/material/Badge';
 
 const demoTheme = createTheme({
   cssVariables: {
@@ -51,6 +53,17 @@ export default function NavigationLayout({ children }: LayoutProps) {
 
   const demoWindow = global.window;
 
+  function cart () {
+    return (
+      <React.Fragment>
+        <Badge badgeContent={4} color="secondary">
+        <ShoppingCartIcon color="action" />
+        </Badge>
+      </React.Fragment>
+    );
+  }
+
+
   return (
     <AppProvider
       branding={{
@@ -63,7 +76,7 @@ export default function NavigationLayout({ children }: LayoutProps) {
       theme={demoTheme}
       window={demoWindow}
     >
-      <DashboardLayout>
+      <DashboardLayout  slots={{ toolbarActions:  cart}}>
         <Box
           sx={{
             py: 4,
