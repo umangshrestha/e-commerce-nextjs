@@ -6,20 +6,13 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-
-export interface ProductProps {
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
+import { ProductType as ProductProps } from "./types";
 
 export default function Product({
   name,
   description,
   price,
-  image,
+  imageUrl,
   quantity,
 }: ProductProps) {
   const imageSize = 300;
@@ -28,7 +21,7 @@ export default function Product({
   return (
     <Card sx={{ maxWidth: 300 }}>
       <CardMedia
-        image={image}
+        image={imageUrl}
         component={Image}
         alt={`${name} Image`}
         height={imageSize}

@@ -29,18 +29,10 @@ const demoTheme = createTheme({
 });
 
 interface LayoutProps {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * Remove this when copying and pasting into your project.
-   */
-  window?: () => Window;
   children?: React.ReactNode;
 }
 
-export default function LayoutNavigationLinks({
-  children,
-  window,
-}: LayoutProps) {
+export default function NavigationLayout({ children }: LayoutProps) {
   const { data: session } = useSession();
   console.log(session);
   const [pathname, setPathname] = React.useState("/products");
@@ -57,7 +49,7 @@ export default function LayoutNavigationLinks({
     };
   }, [pathname, router]);
 
-  const demoWindow = window !== undefined ? window() : global.window;
+  const demoWindow = global.window;
 
   return (
     <AppProvider

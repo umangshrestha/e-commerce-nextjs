@@ -19,12 +19,18 @@
     "@mui/material": "^6.1.0",
     "@mui/material-nextjs": "^6.1.0",
     "@prisma/client": "5.19.1",
+    "@sanity/client": "^6.21.3",
+    "@sanity/image-url": "1",
+    "@sanity/vision": "3",
     "@toolpad/core": "^0.6.0",
     "bcrypt": "^5.1.1",
     "next": "14.2.11",
     "next-auth": "^5.0.0-beta.21",
+    "next-sanity": "^9.4.7",
     "react": "^18",
     "react-dom": "^18",
+    "sanity": "3",
+    "styled-components": "6",
     "zod": "^3.23.8"
   },
   "devDependencies": {

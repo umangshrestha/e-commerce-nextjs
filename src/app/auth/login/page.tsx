@@ -4,15 +4,11 @@ import type { AuthProvider } from "@toolpad/core";
 import { SignInPage } from "@toolpad/core/SignInPage";
 import { AuthError } from "next-auth";
 import { providerMap, signIn } from "@/app/auth";
-import CustomPasswordField from "@/components/CustomPasswordField";
 
 export default function SignIn() {
   return (
     <SignInPage
       providers={providerMap}
-      slots={{
-        passwordField: CustomPasswordField,
-      }}
       signIn={async (
         provider: AuthProvider,
         formData: FormData,
