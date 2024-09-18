@@ -11,7 +11,7 @@ import { PageContainer } from "@toolpad/core/PageContainer";
 import { createTheme } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import CartIcon from "./CartIcon";
+import CartIcon from "@/components/CartItem/CartIcon";
 import { signIn, signOut } from "next-auth/react";
 
 const demoTheme = createTheme({

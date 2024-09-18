@@ -8,6 +8,7 @@ interface CartIconProps {
 }
 
 export default function CartIcon({ onClick }: CartIconProps) {
+
   return (
     <IconButton onClick={onClick}>
       <Badge badgeContent={4} color="secondary">

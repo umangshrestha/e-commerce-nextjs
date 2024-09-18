@@ -8,6 +8,8 @@ const PRODUCTS_GORQ = `*[_type == "product" && (!defined($category) || category 
   imageUrl,
   quantity,
   category,
+  maxQuantity,
+  badgeText,
   tags
 }`;
 
@@ -21,6 +23,7 @@ export const getAvailableProducts = async (
     if (result.success) {
       return result.data satisfies ProductType;
     }
+    console.log(result.error.issues)
     return null;
   });
 };

@@ -1,13 +1,12 @@
+import Box from "@mui/material/Box";
 import * as React from "react";
-import { Box } from "@mui/material";
 import Product from "./CartItem";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import { getAvailableCartItems } from "@/components/CartItem/query";
 
-import { getAvailableProducts } from "./query";
-
-export default async function CartList() {
-  const filteredProducts = await getAvailableProducts();
+export default async function Cart() {
+  const filteredProducts = await getAvailableCartItems();
   if (!filteredProducts || filteredProducts.length === 0) {
     return <Box sx={{ padding: 2 }}>No products available</Box>;
   }

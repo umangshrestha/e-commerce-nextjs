@@ -1,6 +1,7 @@
-import { type SchemaTypeDefinition } from "sanity";
+import {  type SchemaTypeDefinition } from "sanity";
 
-const Product = {
+
+const Product: SchemaTypeDefinition = {
   title: "Product",
   name: "product",
   type: "document",
@@ -9,6 +10,7 @@ const Product = {
       title: "Name",
       name: "name",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       title: "Description",
@@ -18,6 +20,15 @@ const Product = {
     {
       title: "Price",
       name: "price",
+      type: "number",
+      validation: (Rule) => [
+        Rule.required(),
+        Rule.positive().precision(2.0),
+      ],
+    },
+    {
+      title: "Max quantity per order",
+      name: "maxQuantity",
       type: "number",
     },
     {
@@ -39,6 +50,18 @@ const Product = {
       title: "Category",
       name: "category",
       type: "string",
+      options: {
+        list: [
+      
+          { title: "Chicken", value: "chicken" },
+          { title: "Beef", value: "beef" },
+          { title: "Pork", value: "pork" },
+          { title: "Mutton", value: "mutton" },
+          { title: "Fish", value: "fish" },
+          { title: "Eggs", value: "eggs" },
+        ]
+      },
+      validation: (Rule) => Rule.required(),
     },
     {
       title: "Tags",
@@ -51,6 +74,9 @@ const Product = {
       ],
     },
   ],
+  initialValue: {
+    maxQuantity: 10,
+  },
 };
 
 export const schema: { types: SchemaTypeDefinition[] } = {

@@ -11,7 +11,7 @@ const PRODUCTS_GORQ = `*[_type == "product" ] {
   tags
 }`;
 
-export const getAvailableProducts = async (): Promise<ProductType[]> => {
+export const getAvailableCartItems = async (): Promise<ProductType[]> => {
   const products = await sanityClient.fetch(PRODUCTS_GORQ);
   return products.flatMap((product: object) => {
     const result = ProductSchema.safeParse(product);

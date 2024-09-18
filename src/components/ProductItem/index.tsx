@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { ProductType as ProductProps } from "./types";
 import clsx from "clsx";
+import Badge from "@/components/Badge";
 
 export default function Product({
   name,
@@ -16,7 +17,7 @@ export default function Product({
   quantity,
   badgeText,
 }: ProductProps) {
-  const imageSize = 300;
+  const imageSize = 200;
   const isProductAvailable = quantity > 0;
   badgeText = isProductAvailable ? badgeText : "Out of Stock";
   return (
@@ -26,11 +27,7 @@ export default function Product({
         { "opacity-50 pointer-events-none": !isProductAvailable },
       )}
     >
-      {badgeText && (
-        <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
-          {badgeText}
-        </div>
-      )}
+     <Badge badgeText={badgeText} />
       <CardMedia title={name}>
         <Image
           src={imageUrl}
@@ -41,10 +38,10 @@ export default function Product({
         />
       </CardMedia>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" className="break-words max-w-full">
           {name}
         </Typography>
-        <Typography variant="body2" className="text-gray-500">
+        <Typography variant="body2" component="div" className="break-words max-w-full text-gray-500">
           {description}
         </Typography>
         <Typography variant="h6" className="text-red-500">
@@ -57,6 +54,7 @@ export default function Product({
         <Button size="small" disabled={!isProductAvailable}>
           Buy
         </Button>
+        <span className="flex-1" />
         <Button size="small" disabled={!isProductAvailable}>
           Add to Cart
         </Button>
