@@ -7,6 +7,7 @@ export interface ProductType {
   imageUrl: string;
   quantity: number;
   category: string;
+  badgeText?: string;
   tags: string[];
 }
 
@@ -17,5 +18,6 @@ export const ProductSchema = z.object({
   imageUrl: z.string(),
   quantity: z.number(),
   category: z.string(),
+  badgeText: z.string().optional(),
   tags: z.array(z.string()),
 });

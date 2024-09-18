@@ -18,36 +18,53 @@ export default function Product({
   quantity,
 }: ProductProps) {
   const imageSize = 50;
-  const isProductAvailable = quantity > 0;
-  const totalPrice = price * quantity;
+  // const isProductAvailable = quantity > 0;
+  // const totalPrice = price * quantity;
 
   return (
-    <Card sx={{ display: 'flex', alignItems: 'center', minWidth: 600, padding: 1 }}>
-      <CardMedia
-        sx={{ width: imageSize, height: imageSize, borderRadius: '8px' }}
-        component="img"
-        image={imageUrl}
-        alt={`${name} Image`}
-      />
+    <Card
+      sx={{ display: "flex", alignItems: "center", minWidth: 600, padding: 1 }}
+    >
+      <CardMedia title={name}>
+        <Image src={imageUrl} alt={name} width={imageSize} height={imageSize} />
+      </CardMedia>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1, pl: 2 }}>
-        <CardContent sx={{ padding: '0px' }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          flexGrow: 1,
+          pl: 2,
+        }}
+      >
+        <CardContent sx={{ padding: "0px" }}>
           <Typography gutterBottom variant="h6" component="div">
             {name}
           </Typography>
         </CardContent>
       </Box>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'space-between', pl: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-end",
+          justifyContent: "space-between",
+          pl: 2,
+        }}
+      >
         <Typography gutterBottom variant="h6" component="div">
           ${price} x {quantity}
         </Typography>
 
-        <CardActions sx={{ display: 'flex', justifyContent: 'flex-end', padding: 0 }}>
-          <Button color="error" sx={{ minWidth: '40px' }}>
+        <CardActions
+          sx={{ display: "flex", justifyContent: "flex-end", padding: 0 }}
+        >
+          <Button color="error" sx={{ minWidth: "40px" }}>
             <DeleteIcon />
           </Button>
-          <Button color="primary" sx={{ minWidth: '40px' }}>
+          <Button color="primary" sx={{ minWidth: "40px" }}>
             <AddIcon />
           </Button>
         </CardActions>

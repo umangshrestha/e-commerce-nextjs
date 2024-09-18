@@ -14,28 +14,14 @@ datasource db {
 model User {
   id String  @id @default(uuid())
   email String @unique
-  password String
-  phoneNumber String
   role Role @default(USER)
-  name  String
+  name  String?
+  image String?
   orders Order[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-
-model Product {
-  id String @id @default(uuid())
-  name String
-  description String?
-  imageUrl String?
-  price Int // cents * 100
-  quantity Int
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  orderItems OrderItem[]
-}
 
 model Order {
   id String @id @default(uuid())
@@ -54,7 +40,8 @@ model OrderItem {
   productId String
   orderId String
   quantity Int
-  product Product @relation(fields: [productId], references: [id])
+  product String // reference to Sanity product
+  price Int // price in cents at the time of order
   order Order @relation(fields: [orderId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

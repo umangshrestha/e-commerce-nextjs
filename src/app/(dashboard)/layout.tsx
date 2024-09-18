@@ -11,8 +11,8 @@ import { PageContainer } from "@toolpad/core/PageContainer";
 import { createTheme } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Badge from '@mui/material/Badge';
+import CartIcon from "./CartIcon";
+import { signIn, signOut } from "next-auth/react";
 
 const demoTheme = createTheme({
   cssVariables: {
@@ -36,8 +36,7 @@ interface LayoutProps {
 
 export default function NavigationLayout({ children }: LayoutProps) {
   const { data: session } = useSession();
-  console.log(session);
-  const [pathname, setPathname] = React.useState("/products");
+  const [pathname, setPathname] = React.useState("/");
   const router = useRouter();
   const dummyRouter = React.useMemo<Router>(() => {
     return {
@@ -51,18 +50,10 @@ export default function NavigationLayout({ children }: LayoutProps) {
     };
   }, [pathname, router]);
 
-  const demoWindow = global.window;
-
-  function cart () {
-    return (
-      <React.Fragment>
-        <Badge badgeContent={4} color="secondary">
-        <ShoppingCartIcon color="action" />
-        </Badge>
-      </React.Fragment>
-    );
-  }
-
+  const authentication = {
+    signIn,
+    signOut,
+  };
 
   return (
     <AppProvider
@@ -74,9 +65,15 @@ export default function NavigationLayout({ children }: LayoutProps) {
       session={session}
       router={dummyRouter}
       theme={demoTheme}
-      window={demoWindow}
+      authentication={authentication}
     >
-      <DashboardLayout  slots={{ toolbarActions:  cart}}>
+      <DashboardLayout
+        slots={{
+          toolbarActions: () => (
+            <CartIcon onClick={() => dummyRouter.navigate("/cart")} />
+          ),
+        }}
+      >
         <Box
           sx={{
             py: 4,

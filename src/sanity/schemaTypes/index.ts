@@ -31,6 +31,11 @@ const Product = {
       type: "number",
     },
     {
+      title: "Badge",
+      name: "badgeText",
+      type: "string",
+    },
+    {
       title: "Category",
       name: "category",
       type: "string",

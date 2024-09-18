@@ -3,6 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 // import Credentials from "next-auth/providers/credentials";
 import type { Provider } from "next-auth/providers";
 import type { AuthProvider, SupportedAuthProvider } from "@toolpad/core";
+import prisma from "@/lib/db";
 
 const providers: Provider[] = [
   // Credentials({
@@ -55,6 +56,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         return true;
       }
 
+      return false;
+    },
+    async signIn({ user }) {
+      console.log("signIn", user);
+      if (!user.email) {
+        return false;
+      }
+      try {
+        const data = {
+          email: user.email,
+          name: user.name,
+          image: user.image,
+        };
+        await prisma.user.upsert({
+          where: { email: user.email },
+          update: data,
+          create: data,
+        });
+        return true;
+      } catch (error) {
+        console.error("Failed to upsert user:", error);
+      }
       return false;
     },
   },

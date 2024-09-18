@@ -11,7 +11,7 @@ export default function Footer() {
       sx={{
         py: 3,
         px: 2,
-        mt: "auto",
+        mt: 4,
         textAlign: "center",
         borderTop: "1px solid #e7e7e7",
       }}
