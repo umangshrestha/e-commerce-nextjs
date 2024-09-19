@@ -6,8 +6,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { ProductType as ProductProps } from "./types";
-import clsx from "clsx";
 import Badge from "@/components/Badge";
+import Viel from "@/components/Viel";
+import Card from "@mui/material/Card";
 
 export default function Product({
   name,
@@ -17,22 +18,18 @@ export default function Product({
   quantity,
   badgeText,
 }: ProductProps) {
-  const imageSize = 200;
+  const imageSize = 300;
   const isProductAvailable = quantity > 0;
   badgeText = isProductAvailable ? badgeText : "Out of Stock";
   return (
-    <div
-      className={clsx(
-        "max-w-sm mx-auto rounded overflow-hidden shadow-lg relative",
-        { "opacity-50 pointer-events-none": !isProductAvailable },
-      )}
-    >
+    <Viel enable={!isProductAvailable}>
+      <Card className="h-full w-64">
      <Badge badgeText={badgeText} />
       <CardMedia title={name}>
         <Image
           src={imageUrl}
           alt={name}
-          className="h-48 w-full object-cover"
+          className="h-48 object-full"
           width={imageSize}
           height={imageSize}
         />
@@ -59,6 +56,7 @@ export default function Product({
           Add to Cart
         </Button>
       </CardActions>
-    </div>
+    </Card>
+    </Viel>
   );
 }

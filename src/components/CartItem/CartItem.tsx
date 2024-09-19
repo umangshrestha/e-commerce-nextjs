@@ -10,7 +10,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 import { ProductType as ProductProps } from "./types";
 import Box from "@mui/material/Box";
-
+import Badge from "@/components/Badge";
+import Viel from "@/components/Viel";
 export default function Product({
   name,
   price,
@@ -18,10 +19,12 @@ export default function Product({
   quantity,
 }: ProductProps) {
   const imageSize = 50;
-  // const isProductAvailable = quantity > 0;
+  const isProductAvailable = quantity > 0;
   // const totalPrice = price * quantity;
 
   return (
+    <Viel enable={!isProductAvailable}>
+    {!isProductAvailable ? <Badge badgeText="Out of Order" /> : null}
     <Card
       sx={{ display: "flex", alignItems: "center", minWidth: 600, padding: 1 }}
     >
@@ -70,5 +73,6 @@ export default function Product({
         </CardActions>
       </Box>
     </Card>
+    </Viel>
   );
 }
